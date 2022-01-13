@@ -32,7 +32,8 @@ jobs:
         run: docker pull --platform ${{ github.event.inputs.platform }} gcr.io/${{ github.event.inputs.name }}
       - name: Tag and Push Image
         run: |
-          name=isayme/${${{ github.event.inputs.name }}/\/./}
+          name=${{ github.event.inputs.name }}
+          name=isayme/${name/\//./}
           echo $name
           docker tag gcr.io/${{ github.event.inputs.name }} $name
           docker push $name
