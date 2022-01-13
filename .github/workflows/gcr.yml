@@ -33,5 +33,5 @@ jobs:
       - name: Tag and Push Image
         run: |
           name=${{ secrets.DOCKERHUB_USERNAME }}/${${{ github.event.inputs.name }}/\/./}
-          docker tag gcr.io/${{ github.event.inputs.name }} name
-          docker push name
+          docker tag gcr.io/${{ github.event.inputs.name }} $name
+          docker push $name
