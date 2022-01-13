@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Pull Image
-        run: docker pull --platform ${{ github.event.inputs.name }} gcr.io/${{ github.event.inputs.name }}
+        run: docker pull --platform ${{ github.event.inputs.platform }} gcr.io/${{ github.event.inputs.name }}
       - name: Tag and Push Image
         run: |
           name=${{ secrets.DOCKERHUB_USERNAME }}/${${{ github.event.inputs.name }}/\/./}
