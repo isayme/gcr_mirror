@@ -33,7 +33,7 @@ jobs:
       - name: Tag and Push Image
         run: |
           name=${{ github.event.inputs.name }}
-          name=isayme/${name/\//./}
+          name=isayme/${name/\//.}
           echo $name
           docker tag gcr.io/${{ github.event.inputs.name }} $name
           docker push $name
